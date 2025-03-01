@@ -1,6 +1,10 @@
 import type { FC } from 'react';
 import { useState, useEffect } from 'react';
-import { gen, get_max_turn as getMaxTurn, vis } from '../../public/wasm/rust';
+import {
+  generate_input as generateInput,
+  get_max_turn as getMaxTurn,
+  vis,
+} from '../../public/wasm/rust';
 import type { VisualizerSettingInfo, VisualizerResult } from '../types';
 import Description from './Description';
 import FileUploader from './FileUploader';
@@ -27,7 +31,7 @@ const AHCLikeVisualizer: FC = () => {
   });
 
   useEffect(() => {
-    const inputText = gen(
+    const inputText = generateInput(
       visualizerSettingInfo.seed,
       visualizerSettingInfo.problemId,
     );
