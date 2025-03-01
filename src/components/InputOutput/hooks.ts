@@ -1,5 +1,5 @@
 import JSZip from 'jszip';
-import { gen } from '../../../public/wasm/rust';
+import { generate_input } from '../../../public/wasm/rust';
 
 export const useDownloadInput = (): {
   downloadInput: (
@@ -17,7 +17,7 @@ export const useDownloadInput = (): {
   ): void => {
     const zip = new JSZip();
     for (let i = 0; i < downloadCases; i++) {
-      const inputString = gen(seed + i, problemId);
+      const inputString = generate_input(seed + i, problemId);
       zip.file((seed + i).toString().padStart(4, '0') + '.txt', inputString);
     }
     /* eslint-disable*/
