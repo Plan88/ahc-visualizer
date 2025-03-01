@@ -1,7 +1,7 @@
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
-pub fn gen(seed: i32, problemId: String) -> String {
+pub fn generate_input(seed: i32, problemId: String) -> String {
     problemId
 }
 
